@@ -148,6 +148,3 @@ cd Challenge-ForoHub
 ```bash
    mvn spring-boot:run
 ```
-
-  "odontologoId": 2
-}
