@@ -1,5 +1,6 @@
 package com.alura.foroHub.entity;
 
+import com.alura.foroHub.entradaDTO.TopicoActualizarDTO;
 import com.alura.foroHub.entradaDTO.TopicoDTO;
 import jakarta.persistence.*;
 
@@ -61,5 +62,14 @@ public class Topico {
 
     public Curso getCurso() {
         return curso;
+    }
+
+    public void actualizarDatos(TopicoActualizarDTO topicoActualizarDTO) {
+        if(topicoActualizarDTO.titulo() != null){
+            this.titulo = topicoActualizarDTO.titulo();
+        }
+        if(topicoActualizarDTO.mensaje() != null){
+            this.mensaje = topicoActualizarDTO.mensaje();
+        }
     }
 }

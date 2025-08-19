@@ -2,6 +2,7 @@ package com.alura.foroHub.controller;
 
 import com.alura.foroHub.entity.Topico;
 import com.alura.foroHub.entity.Usuario;
+import com.alura.foroHub.entradaDTO.TopicoActualizarDTO;
 import com.alura.foroHub.entradaDTO.TopicoDTO;
 import com.alura.foroHub.repository.CursoRepository;
 import com.alura.foroHub.repository.TopicoRepository;
@@ -56,4 +57,24 @@ public class TopicoController {
         var resultado = new TopicoSalidaDTO(topico);
         return ResponseEntity.ok(resultado);
     }
+
+    @Transactional
+    @PutMapping
+    public ResponseEntity actualizar(@RequestBody @Valid TopicoActualizarDTO topicoDTO){
+        var topico = topicoRepository.getReferenceById(topicoDTO.id());
+        topico.actualizarDatos(topicoDTO);
+
+        return ResponseEntity.ok(new TopicoSalidaDTO(topico));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        if (topicoRepository.existsById(id)) {
+            topicoRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
