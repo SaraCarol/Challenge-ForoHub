@@ -20,6 +20,9 @@ public class Usuario implements UserDetails {
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Topico> topicos;
 
+    public Usuario() {
+    }
+
     public Long getId() {
         return id;
     }

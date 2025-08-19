@@ -32,6 +32,9 @@ public class Topico {
         this.curso = curso;
     }
 
+    public Topico() {
+    }
+
     public Long getId() {
         return id;
     }
