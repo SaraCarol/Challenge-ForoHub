@@ -12,7 +12,8 @@ public record TopicoSalidaDTO(
         String mensaje,
         LocalDateTime fechaCreacion,
         Boolean estado,
-        Usuario usuario
+        String nombreAutor,
+        String nombreCurso
 ) {
 
     public TopicoSalidaDTO(Topico topico){
@@ -22,7 +23,8 @@ public record TopicoSalidaDTO(
                 topico.getMensaje(),
                 topico.getFechaCreacion(),
                 topico.getEstado(),
-                topico.getAutor()
+                topico.getAutor().getNombre(),
+                topico.getCurso().getNombre()
         );
     }
 }

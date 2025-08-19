@@ -21,7 +21,7 @@ public class TokenService {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
                     .withIssuer("API forohub")
-                    .withSubject(usuario.getNombre())
+                    .withSubject(usuario.getUsername())
                     .withExpiresAt(fechaExpiracion())
                     .sign(algoritmo);
 

@@ -22,7 +22,7 @@ public class Topico {
     @JoinColumn(name = "curso_id", nullable = false)
     private Curso curso;
 
-    public Topico(TopicoDTO topicoDTO) {
+    public Topico(TopicoDTO topicoDTO, Usuario autor, Curso curso) {
         this.id = null;
         this.titulo = topicoDTO.titulo();
         this.mensaje = topicoDTO.mensaje();
